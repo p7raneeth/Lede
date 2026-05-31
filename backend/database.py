@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 import asyncpg
 from dotenv import load_dotenv
 
@@ -10,7 +11,7 @@ DB_NAME = os.getenv("DB_NAME")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = int(os.getenv("DB_PORT", 5432))
 
-_pool: asyncpg.Pool | None = None
+_pool: Optional[asyncpg.Pool] = None
 
 
 async def get_pool() -> asyncpg.Pool:
